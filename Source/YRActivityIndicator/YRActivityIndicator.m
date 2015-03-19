@@ -298,7 +298,7 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
         CGFloat tt = t * t;
         CGFloat ttt = tt * t;
         
-        CGFloat currentAngle = (3 * tt - 2 * ttt) * maxValue;
+        CGFloat currentAngle = (3 * t * pow(1 - t, 2) * self.firstBezierControlPoint.y + 3 * tt * (1 - t) * self.secondBezierControlPoint.y + ttt) * maxValue;
         
         item.center = (CGPoint){
             (CGRectGetWidth(self.bounds) / 2) + self.radius * sin(currentAngle),
