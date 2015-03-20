@@ -228,31 +228,6 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
 
 #pragma mark - Private
 
-- (void)createItemsForAnimation {
-    // Remove previous items.
-    [_animatingItems makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
-    NSMutableArray *animatingItems = [NSMutableArray new];
-    
-    for (int i = 0; i < self.maxItems; i++) {
-        CGSize itemSize = self.maxItemSize;
-        
-        if (self.maxItems > 1) {
-            itemSize = (CGSize){
-                self.maxItemSize.width - (self.maxItemSize.width - self.minItemSize.width) * i / (self.maxItems - 1),
-                self.maxItemSize.height - (self.maxItemSize.height - self.minItemSize.height) * i / (self.maxItems - 1)
-            };
-        }
-
-        UIView *itemView = [self createItemViewWithSize:itemSize];
-        
-        [self addSubview:itemView];
-        [animatingItems addObject:itemView];
-    }
-    
-    _animatingItems = [NSArray arrayWithArray:animatingItems];
-}
-
 - (void)interpolateForTime:(CGFloat)time {
     NSLog(@"Time: %.4f. Duration: %.2f. Passed: %.2f(%%)", time, self.cycleDuration, (time / self.cycleDuration) * 100);
     
@@ -308,6 +283,31 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
 }
 
 #pragma mark - Item Creation
+
+- (void)createItemsForAnimation {
+    // Remove previous items.
+    [_animatingItems makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    NSMutableArray *animatingItems = [NSMutableArray new];
+    
+    for (int i = 0; i < self.maxItems; i++) {
+        CGSize itemSize = self.maxItemSize;
+        
+        if (self.maxItems > 1) {
+            itemSize = (CGSize){
+                self.maxItemSize.width - (self.maxItemSize.width - self.minItemSize.width) * i / (self.maxItems - 1),
+                self.maxItemSize.height - (self.maxItemSize.height - self.minItemSize.height) * i / (self.maxItems - 1)
+            };
+        }
+        
+        UIView *itemView = [self createItemViewWithSize:itemSize];
+        
+        [self addSubview:itemView];
+        [animatingItems addObject:itemView];
+    }
+    
+    _animatingItems = [NSArray arrayWithArray:animatingItems];
+}
 
 - (UIView *)createItemViewWithSize:(CGSize)itemSize {
     UIImage *itemImage = self.itemImage;
@@ -387,104 +387,72 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
 
 /**
  *  Solves cubic equation (simplified version)
- *  Thanks to: http://stackoverflow.com/a/15936684/2186140
+ *  Thanks to: https://en.wikipedia.org/wiki/Cubic_function
  */
 - (CGFloat)solveCubicWithA:(CGFloat)a
                      withB:(CGFloat)b
                      withC:(CGFloat)c
                      withD:(CGFloat)d {
-    if (fabs(a) <= FLT_EPSILON) {
-        return [self solveQuadraticWithA:b
-                                   withB:c
-                                   withC:d];
-    }
-    
     b /= a;
     c /= a;
     d /= a;
-
-    if (fabs(d) <= FLT_EPSILON) {
-        return 0;
-    }
     
-    CGFloat q = (3.0 * c - b * b) / 9.0;
-    CGFloat r = (-27.0 * d + b * (9.0 * c - 2.0 * b * b)) / 54.0;
-    CGFloat discriminant = q * q * q + r * r;
-    CGFloat term1 = b / 3.0;
+    CGFloat bb = b * b;
+    CGFloat bbb = bb * b;
     
-    if (discriminant > 0) {
-        // We've got 1 real and 2 complex roots.
-        // Grab real and return it.
-        CGFloat s = r + sqrt(discriminant);
-        CGFloat t = r - sqrt(discriminant);
-        
-        s = (s < 0) ? -pow(-s, 1.0 / 3) : pow(s, 1.0 / 3);
-        t = (t < 0) ? -pow(-t, 1.0 / 3) : pow(t, 1.0 / 3);
-        
-        CGFloat result = -term1 + s + t;
-        
-        if (result >= 0 && result <= 1) {
-            return result;
+    CGFloat q = (bb - 3 * c) / 9;
+    CGFloat r = (2 * bbb - 9 * b * c + 27 * d) / 54;
+    CGFloat s =  q * q * q - r * r;
+    
+    CGFloat resultingValue = 0.0f;
+    
+    NSLog(@"A: %g. B: %g. C: %g. D: %g. Q: %.10f. R: %.10f. S: %.10f",
+          a,
+          b,
+          c,
+          d,
+          q,
+          r,
+          s);
+    
+    if (s < 0) {
+        NSLog(@"Got 1 real root.");
+        if (q == 0) {
+            CGFloat underRootExpression = d - bbb / 27;
+            resultingValue = (-pow(underRootExpression < 0 ? -underRootExpression : underRootExpression, 1.0 / 3) - b / 3) * underRootExpression / fabs(underRootExpression);
+        } else if (q > 0){
+            CGFloat angle = 1.0 / 3 * acosh(fabs(r) / sqrt(q * q * q));
+            resultingValue = -2 * r / fabs(r) * sqrt(q) * cosh(angle) - b / 3;
         } else {
-            NSLog(@"Error! Should return result.");
+            // q < 0
+            CGFloat angle = 1.0 / 3 * asinh(fabs(r) / sqrt(fabs(q * q * q)));
+            resultingValue = -2 * r / fabs(r) * sqrt(-q) * sinh(angle) - b / 3;
         }
-    } else if (discriminant == 0) {
-        // We've got all real roots.
-        CGFloat r13 = (r < 0) ? -sqrt(-r) : sqrt(r);
+    } else if (s > 0) {
+        NSLog(@"3 real unique roots.");
+        CGFloat angle = 1.0 / 3 * acos(r / sqrt(q * q * q));
+        resultingValue = -2 * sqrt(q) * cos(angle) - b / 3;
         
-        CGFloat result = -term1 + 2.0 * r13;
+        if (resultingValue < 0 || resultingValue > 1) {
+            resultingValue = -2 * sqrt(q) * cos(angle + (2.0 * M_PI) / 3) - b / 3;
+        }
         
-        if (result >= 0 && result <= 1) {
-            return result;
-        } else {
-            result = -(r13 + term1);
-
-            if (result >= 0 && result <= 1) {
-                return result;
-            } else {
-                NSLog(@"ERROR IN D = 0");
-            }
+        if (resultingValue < 0 || resultingValue > 1) {
+            resultingValue = -2 * sqrt(q) * cos(angle - (2.0 * M_PI) / 3) - b / 3;
         }
     } else {
-        // We've got 3 roots for that equation and they aren't equal to each other.
-        q = -q;
-        CGFloat qqq = q * q * q;
+        // s = 0
+        NSLog(@"3 real roots, 2 equal");
+        resultingValue = -2 * pow(r, 1.0 / 3) - b / 3;
         
-        CGFloat dum1 = acos(r / sqrt(qqq));
-        CGFloat r13 = 2.0 * sqrt(q);
-        
-        for (int i = 0; i < 3; i++) {
-            CGFloat result = -term1 + r13 * cos((dum1 + i * 2 * M_PI) / 3);
-            NSLog(@"RESULT: %.2f", result);
-            
-            if (result >= 0 && result <= 1) {
-                return result;
-            }
+        if (resultingValue < 0 || resultingValue > 1) {
+            resultingValue = pow(r, 1.0 / 3) - b / 3;
         }
     }
     
-    NSLog(@"GOT TO END! ERROR");
-    return 0.0;
-}
-
-// Solves the equation ax² + bx + c = 0 for x ϵ ℝ
-// and returns the first result in [0, 1] or null.
-- (CGFloat)solveQuadraticWithA:(CGFloat)a
-                         withB:(CGFloat)b
-                         withC:(CGFloat)c {
-    CGFloat result = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
+    NSLog(@"Resulting value: %.10f", resultingValue);
     
-    if (result >= 0 && result <= 1) {
-        return result;
-    } else {
-        result = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
-        if (result >= 0 && result <= 1) {
-            return result;
-        }
-    }
-    
-    NSLog(@"ERROR QUADRATIC.");
-    return 0.0;
+    return resultingValue;
 }
 
 @end
