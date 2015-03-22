@@ -79,10 +79,6 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
     _secondBezierControlPoint = kDefaultSecondBezierControlPoint;
 }
 
-- (void)dealloc {
-    NSLog(@"%s", __FUNCTION__);
-}
-
 #pragma mark - Overridden
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
@@ -256,23 +252,9 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
         CGFloat currentTime = MIN(time / cycleDurationForItem,
                                   1);
         
-        // Interpolate by cubic bezier.
-        CGFloat maxValue = 2 * M_PI;
-        
-        // Solve cubic equation and resolve for angle.
-        CGFloat a = 3 * self.firstBezierControlPoint.x - 3 * self.secondBezierControlPoint.x + 1;
-        CGFloat b = -6 * self.firstBezierControlPoint.x + 3 * self.secondBezierControlPoint.x;
-        CGFloat c = 3 * self.firstBezierControlPoint.x;
-        CGFloat d = -currentTime;
-        
-        CGFloat t = [self solveCubicWithA:a
-                                    withB:b
-                                    withC:c
-                                    withD:d];
-        CGFloat tt = t * t;
-        CGFloat ttt = tt * t;
-        
-        CGFloat currentAngle = (3 * t * pow(1 - t, 2) * self.firstBezierControlPoint.y + 3 * tt * (1 - t) * self.secondBezierControlPoint.y + ttt) * maxValue;
+        CGFloat currentAngle = [self solveCubicBezierForAngleWithTime:currentTime
+                                                    firstControlPoint:self.firstBezierControlPoint
+                                                   secondControlPoint:self.secondBezierControlPoint];
         
         item.center = (CGPoint){
             (CGRectGetWidth(self.bounds) / 2) + self.radius * sin(currentAngle),
@@ -383,7 +365,31 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
     [self invalidateDisplayLink];
 }
 
-#pragma mark - Helpers
+#pragma mark - Bezier
+
+/**
+ *  Solves cubic Bezier for angle with given time and returns value between 0..2PI
+ */
+- (CGFloat)solveCubicBezierForAngleWithTime:(CGFloat)time
+                          firstControlPoint:(CGPoint)firstControlPoint
+                         secondControlPoint:(CGPoint)secondControlPoint {
+    CGFloat maxAngle = 2 * M_PI;
+    
+    // Solve cubic equation and resolve for angle.
+    CGFloat a = 3 * firstControlPoint.x - 3 * secondControlPoint.x + 1;
+    CGFloat b = -6 * firstControlPoint.x + 3 * secondControlPoint.x;
+    CGFloat c = 3 * firstControlPoint.x;
+    CGFloat d = -time;
+    
+    CGFloat t = [self solveCubicWithA:a
+                                withB:b
+                                withC:c
+                                withD:d];
+    CGFloat tt = t * t;
+    CGFloat ttt = tt * t;
+    
+    return (3 * t * pow(1 - t, 2) * firstControlPoint.y + 3 * tt * (1 - t) * secondControlPoint.y + ttt) * maxAngle;
+}
 
 /**
  *  Solves cubic equation (simplified version)
