@@ -213,7 +213,6 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
                 // Interpolate all items for current time.
                 [self interpolateForTime:_currentCycleTime];
             }
-            
             // Start animating.
             [self scheduleDisplayLink];
         }
@@ -379,6 +378,7 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
 
 - (void)invalidate {
     [_animatingItems makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    _animatingItems = nil;
     
     [self invalidateDisplayLink];
 }

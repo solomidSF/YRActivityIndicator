@@ -100,6 +100,11 @@
 @property (nonatomic) UIColor *itemColor;
 
 /**
+ *  Tells if activity indicator currently animating.
+ */
+@property (nonatomic, readonly) BOOL isAnimating;
+
+/**
  *  Begins fancy activity indicator animation using cubic Bezier curve as interpolation function.
  */
 - (void)startAnimating;

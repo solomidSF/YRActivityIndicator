@@ -13,6 +13,23 @@
 #import "YRActivityIndicator.h"
 
 @implementation DemoViewController {
+    // Sliders/Switches
+    __weak IBOutlet UISwitch *_hidesWhenStoppedSwitch;
+    __weak IBOutlet UIStepper *_maxItemsStepper;
+    __weak IBOutlet UISlider *_cycleDurationSlider;
+    __weak IBOutlet UISlider *_radiusSlider;
+    __weak IBOutlet UISlider *_maxSpeedSlider;
+    __weak IBOutlet UISlider *_minItemSizeSlider;
+    __weak IBOutlet UISlider *_maxItemSizeSlider;
+    __weak IBOutlet UISlider *_firstBezierXControlPointSlider;
+    __weak IBOutlet UISlider *_firstBezierYControlPointSlider;
+    __weak IBOutlet UISlider *_secondBezierXControlPointSlider;
+    __weak IBOutlet UISlider *_secondBezierYControlPointSlider;
+    __weak IBOutlet UISlider *_redValueSlider;
+    __weak IBOutlet UISlider *_greenValueSlider;
+    __weak IBOutlet UISlider *_blueValueSlider;
+    
+    // UI
     __weak IBOutlet UILabel *_maxItemsLabel;
     
     __weak IBOutlet UILabel *_cycleDurationLabel;
@@ -34,7 +51,14 @@
     __weak IBOutlet UILabel *_greenValueLabel;
     __weak IBOutlet UILabel *_blueValueLabel;
     
+    // Overlay
+    __weak IBOutlet UIView *_overlayView;
+    __weak IBOutlet UIView *_overlayContentView;
+    
+    // Activity indicator
     __weak IBOutlet YRActivityIndicator *_activityIndicator;
+    IBOutlet NSLayoutConstraint *_activityIndicatorHorizontalConstraint;
+    IBOutlet NSLayoutConstraint *_activityIndicatorVerticalConstraint;
 }
 
 #pragma mark - Lifecycle
@@ -56,10 +80,46 @@
 }
 
 - (IBAction)overlayClicked:(id)sender {
-    // TODO:
+    if (_activityIndicator.isAnimating) {
+        [UIView animateWithDuration:0.25
+                         animations:^{
+                             _overlayView.alpha = 1;
+                         } completion:^(BOOL finished) {
+                             [_overlayContentView addSubview:_activityIndicator];
+
+                             [self.view removeConstraints:@[_activityIndicatorHorizontalConstraint,
+                                                            _activityIndicatorVerticalConstraint]];
+
+                             NSLayoutConstraint *horizontalConstraint = nil;
+                             NSLayoutConstraint *verticalConstraint = nil;
+                             
+                             horizontalConstraint = [NSLayoutConstraint constraintWithItem:_activityIndicator
+                                                                                 attribute:NSLayoutAttributeCenterX
+                                                                                 relatedBy:NSLayoutRelationEqual
+                                                                                    toItem:_overlayContentView
+                                                                                 attribute:NSLayoutAttributeCenterX
+                                                                                multiplier:1
+                                                                                  constant:0];
+
+                             verticalConstraint = [NSLayoutConstraint constraintWithItem:_activityIndicator
+                                                                               attribute:NSLayoutAttributeCenterY
+                                                                               relatedBy:NSLayoutRelationEqual
+                                                                                  toItem:_overlayContentView
+                                                                               attribute:NSLayoutAttributeCenterY
+                                                                              multiplier:1
+                                                                                constant:0];
+
+                             [_overlayView addConstraints:@[horizontalConstraint, verticalConstraint]];
+                             
+                             [self.view layoutIfNeeded];
+                             
+                             [_activityIndicator startAnimating];
+                         }];
+    }
 }
 
 - (IBAction)resetClicked:(id)sender {
+    // Set default data for activity indicator.
     _activityIndicator.minItemSize = (CGSize){5, 5};
     _activityIndicator.maxItemSize = (CGSize){20, 20};
     _activityIndicator.maxItems = 6;
@@ -70,10 +130,27 @@
     
     _activityIndicator.radius = 30;
     
+    _activityIndicator.itemImage = nil;
     _activityIndicator.itemColor = [UIColor whiteColor];
     
     _activityIndicator.firstBezierControlPoint = (CGPoint){0.89, 0};
     _activityIndicator.secondBezierControlPoint = (CGPoint){0.12, 1};
+    
+    // Update sliders.
+    _hidesWhenStoppedSwitch.on = _activityIndicator.hidesWhenStopped;
+    _maxItemSizeSlider.value = _activityIndicator.maxItems;
+    _cycleDurationSlider.value = _activityIndicator.cycleDuration;
+    _radiusSlider.value = _activityIndicator.radius;
+    _maxSpeedSlider.value = _activityIndicator.maxSpeed;
+    _minItemSizeSlider.value = _activityIndicator.minItemSize.width;
+    _maxItemSizeSlider.value = _activityIndicator.maxItemSize.width;
+    _firstBezierXControlPointSlider.value = _activityIndicator.firstBezierControlPoint.x;
+    _firstBezierYControlPointSlider.value = _activityIndicator.firstBezierControlPoint.y;
+    _secondBezierXControlPointSlider.value = _activityIndicator.secondBezierControlPoint.x;
+    _secondBezierYControlPointSlider.value = _activityIndicator.secondBezierControlPoint.y;
+    _redValueSlider.value = 1;
+    _greenValueSlider.value = 1;
+    _blueValueSlider.value = 1;
     
     [self refreshUI];
 }
@@ -221,6 +298,21 @@
 
 - (IBAction)weatherClicked:(id)sender {
     _activityIndicator.itemImage = [UIImage imageNamed:@"weather"];
+}
+
+- (IBAction)closeOverlayClicked:(id)sender {
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         _overlayView.alpha = 0;
+                     } completion:^(BOOL finished) {
+                         [self.view addSubview:_activityIndicator];
+
+                         [_activityIndicator startAnimating];
+                         
+                         [self.view addConstraints:@[_activityIndicatorHorizontalConstraint,
+                                                     _activityIndicatorVerticalConstraint]];
+                         [self.view layoutIfNeeded];
+                     }];
 }
 
 #pragma mark - Private

@@ -15,15 +15,15 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1016"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVz-Bi-o5s" customClass="YRActivityIndicator">
-                                <rect key="frame" x="110" y="71" width="100" height="179"/>
+                                <rect key="frame" x="110" y="40" width="100" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fO-3m-ri7">
-                                <rect key="frame" x="0.0" y="365" width="320" height="669"/>
+                                <rect key="frame" x="0.0" y="204" width="320" height="374"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwU-uy-bOu" userLabel="View - [Container View]">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="669"/>
@@ -223,7 +223,7 @@
                                                     <action selector="heartClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="puR-Cm-rYs"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsP-nk-7go">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsP-nk-7go">
                                                 <rect key="frame" x="240" y="555" width="64" height="64"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -254,6 +254,8 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="centerY" secondItem="OsP-nk-7go" secondAttribute="centerY" constant="-252.5" id="PLR-LK-We6"/>
+                                            <constraint firstItem="OsP-nk-7go" firstAttribute="centerX" secondItem="cwU-uy-bOu" secondAttribute="centerX" multiplier="272:160" id="Uxj-DW-xVP"/>
                                             <constraint firstItem="f6G-E3-j8z" firstAttribute="centerX" secondItem="cwU-uy-bOu" secondAttribute="centerX" multiplier="48:160" id="brL-Zf-bkb"/>
                                             <constraint firstAttribute="centerY" secondItem="LtJ-fH-3A4" secondAttribute="centerY" constant="-252.5" id="hey-in-dqN"/>
                                             <constraint firstAttribute="height" constant="669" id="jJH-ha-S8L"/>
@@ -272,10 +274,10 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBb-AH-T3y" userLabel="View - [Control Flow View]">
-                                <rect key="frame" x="0.0" y="309" width="320" height="53.5"/>
+                                <rect key="frame" x="0.0" y="173" width="320" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlb-tm-OMt">
-                                        <rect key="frame" x="26" y="0.0" width="61" height="53.5"/>
+                                        <rect key="frame" x="26" y="0.0" width="61" height="30"/>
                                         <state key="normal" title="Start">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -285,7 +287,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-YA-Llh">
-                                        <rect key="frame" x="91" y="0.0" width="61" height="53.5"/>
+                                        <rect key="frame" x="91" y="0.0" width="61" height="30"/>
                                         <state key="normal" title="Stop">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -295,7 +297,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ib3-yW-N32">
-                                        <rect key="frame" x="165" y="0.0" width="61" height="53.5"/>
+                                        <rect key="frame" x="165" y="0.0" width="61" height="30"/>
                                         <state key="normal" title="Overlay">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -305,7 +307,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itC-h9-OZC">
-                                        <rect key="frame" x="235" y="0.0" width="61" height="53.5"/>
+                                        <rect key="frame" x="235" y="0.0" width="61" height="30"/>
                                         <state key="normal" title="Reset">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -335,11 +337,55 @@
                                     <constraint firstItem="Qlb-tm-OMt" firstAttribute="width" secondItem="QBb-AH-T3y" secondAttribute="width" multiplier="61:320" id="yj2-Mn-QE8"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wO7-mP-nhU" userLabel="View - [Overlay View]">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhz-ku-YcL" userLabel="View - [Alpha View]">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ang-2m-fXo" userLabel="View - [Content View]">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOk-Co-Egy">
+                                                <rect key="frame" x="61" y="515" width="198" height="30"/>
+                                                <state key="normal" title="Close">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closeOverlayClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dEs-lm-1ro"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="GOk-Co-Egy" firstAttribute="height" secondItem="ang-2m-fXo" secondAttribute="height" multiplier="30:568" id="8kb-jT-sCB"/>
+                                            <constraint firstAttribute="centerX" secondItem="GOk-Co-Egy" secondAttribute="centerX" id="ImV-Qq-kHA"/>
+                                            <constraint firstItem="GOk-Co-Egy" firstAttribute="centerY" secondItem="ang-2m-fXo" secondAttribute="centerY" multiplier="530:284" id="JAA-Ul-5yk"/>
+                                            <constraint firstItem="GOk-Co-Egy" firstAttribute="width" secondItem="ang-2m-fXo" secondAttribute="width" multiplier="198:320" id="u03-fD-7Fw"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qhz-ku-YcL" secondAttribute="bottom" id="2iy-7T-NPA"/>
+                                    <constraint firstItem="qhz-ku-YcL" firstAttribute="leading" secondItem="wO7-mP-nhU" secondAttribute="leading" id="2xA-Bz-nTb"/>
+                                    <constraint firstAttribute="trailing" secondItem="qhz-ku-YcL" secondAttribute="trailing" id="KHn-ZC-cMm"/>
+                                    <constraint firstItem="qhz-ku-YcL" firstAttribute="top" secondItem="wO7-mP-nhU" secondAttribute="top" id="KwA-u2-iNH"/>
+                                    <constraint firstAttribute="bottom" secondItem="ang-2m-fXo" secondAttribute="bottom" id="RJA-EN-Xhj"/>
+                                    <constraint firstAttribute="trailing" secondItem="ang-2m-fXo" secondAttribute="trailing" id="SCA-ba-UxQ"/>
+                                    <constraint firstItem="ang-2m-fXo" firstAttribute="top" secondItem="wO7-mP-nhU" secondAttribute="top" id="cmG-IQ-p6E"/>
+                                    <constraint firstItem="ang-2m-fXo" firstAttribute="leading" secondItem="wO7-mP-nhU" secondAttribute="leading" id="zca-EC-HPi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.41176470590000003" green="0.68627450980000004" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wO7-mP-nhU" secondAttribute="trailing" id="5ao-kS-WYm"/>
                             <constraint firstItem="IVz-Bi-o5s" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="100:568" id="6Hb-Nh-SZr"/>
                             <constraint firstItem="9fO-3m-ri7" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="374:568" id="DcQ-3L-C8H"/>
+                            <constraint firstItem="wO7-mP-nhU" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="ECd-tO-gNS"/>
                             <constraint firstItem="QBb-AH-T3y" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="30:568" id="H0N-uH-cR2"/>
                             <constraint firstAttribute="centerX" secondItem="9fO-3m-ri7" secondAttribute="centerX" id="M20-8A-2AU"/>
                             <constraint firstItem="IVz-Bi-o5s" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="90:284" id="O3B-WZ-Png"/>
@@ -347,27 +393,47 @@
                             <constraint firstAttribute="width" secondItem="9fO-3m-ri7" secondAttribute="width" id="c8A-mX-Fcs"/>
                             <constraint firstItem="9fO-3m-ri7" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="391:284" id="e0f-DX-DsY"/>
                             <constraint firstAttribute="centerX" secondItem="IVz-Bi-o5s" secondAttribute="centerX" id="frr-zI-KdF"/>
+                            <constraint firstItem="wO7-mP-nhU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="gyf-aB-Etk"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wO7-mP-nhU" secondAttribute="bottom" id="lt4-Dy-FsU"/>
                             <constraint firstItem="IVz-Bi-o5s" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="100:320" id="oTg-D4-zZQ"/>
                             <constraint firstAttribute="centerX" secondItem="QBb-AH-T3y" secondAttribute="centerX" id="oco-2r-FhI"/>
                             <constraint firstItem="QBb-AH-T3y" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="yz7-I5-ouD"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1016"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="_activityIndicator" destination="IVz-Bi-o5s" id="eoj-nf-80Z"/>
+                        <outlet property="_activityIndicatorHorizontalConstraint" destination="frr-zI-KdF" id="Qle-OP-pl9"/>
+                        <outlet property="_activityIndicatorVerticalConstraint" destination="O3B-WZ-Png" id="21J-hF-3xe"/>
                         <outlet property="_blueValueLabel" destination="n0s-j3-Gjr" id="Bg8-GS-eZa"/>
+                        <outlet property="_blueValueSlider" destination="biM-A3-QR4" id="EHP-Ms-5jm"/>
                         <outlet property="_cycleDurationLabel" destination="6qF-HU-b1e" id="ses-hc-ICv"/>
+                        <outlet property="_cycleDurationSlider" destination="zEb-Db-clW" id="XOS-vn-QcN"/>
+                        <outlet property="_firstBezierXControlPointSlider" destination="V1R-No-bal" id="YUy-MB-VFV"/>
                         <outlet property="_firstBezierXPointValueLabel" destination="dQN-Mc-X6N" id="YQC-Fn-O2r"/>
+                        <outlet property="_firstBezierYControlPointSlider" destination="n0h-yh-5wg" id="fJv-Fs-PGE"/>
                         <outlet property="_firstBezierYPointValueLabel" destination="EQi-Bz-1t3" id="ieQ-wC-tna"/>
                         <outlet property="_greenValueLabel" destination="J7l-0B-um5" id="nXu-oP-j9W"/>
+                        <outlet property="_greenValueSlider" destination="ZVV-4w-gDV" id="Vk7-F3-S0c"/>
+                        <outlet property="_hidesWhenStoppedSwitch" destination="wzs-L3-R2R" id="GqC-4Z-Zih"/>
+                        <outlet property="_maxItemSizeSlider" destination="LQ7-de-TbY" id="KWj-EF-k0J"/>
                         <outlet property="_maxItemSizeValueLabel" destination="LTI-BY-o5u" id="CAp-wp-FNJ"/>
                         <outlet property="_maxItemsLabel" destination="LWu-1j-JtY" id="87H-aA-1XR"/>
+                        <outlet property="_maxItemsStepper" destination="qvb-XW-Qpz" id="NV4-Qd-Yh0"/>
+                        <outlet property="_maxSpeedSlider" destination="vXW-qJ-bfC" id="ehD-Wh-lnm"/>
                         <outlet property="_maxSpeedValueLabel" destination="SkG-D6-qac" id="nXW-pi-vsI"/>
+                        <outlet property="_minItemSizeSlider" destination="WOs-HW-qSu" id="UC3-K0-OCg"/>
                         <outlet property="_minItemSizeValueLabel" destination="WsW-Ho-0zL" id="PRx-1O-WtC"/>
+                        <outlet property="_overlayContentView" destination="ang-2m-fXo" id="jWP-wc-rt0"/>
+                        <outlet property="_overlayView" destination="wO7-mP-nhU" id="EAC-Hw-j7n"/>
+                        <outlet property="_radiusSlider" destination="jNJ-rq-EPK" id="4cE-hB-aDe"/>
                         <outlet property="_radiusValueLabel" destination="AnM-fu-zPj" id="D8O-2z-26k"/>
                         <outlet property="_redValueLabel" destination="U0V-om-IMx" id="zx1-Wr-jNq"/>
+                        <outlet property="_redValueSlider" destination="bmX-yW-gPg" id="980-Lh-GlX"/>
+                        <outlet property="_secondBezierXControlPointSlider" destination="21r-iH-VtV" id="X97-sh-tGj"/>
                         <outlet property="_secondBezierXPointValueLabel" destination="kfW-yD-weE" id="f7h-gf-P2C"/>
+                        <outlet property="_secondBezierYControlPointSlider" destination="0r4-2I-FsX" id="zIq-et-kIK"/>
                         <outlet property="_secondBezierYPointValueLabel" destination="WxY-FI-LnU" id="fnY-7d-c3h"/>
                     </connections>
                 </viewController>
