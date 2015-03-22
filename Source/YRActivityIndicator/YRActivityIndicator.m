@@ -229,7 +229,7 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
 #pragma mark - Private
 
 - (void)interpolateForTime:(CGFloat)time {
-    NSLog(@"Time: %.4f. Duration: %.2f. Passed: %.2f(%%)", time, self.cycleDuration, (time / self.cycleDuration) * 100);
+//    NSLog(@"Time: %.10f. Duration: %.2f. Passed: %.2f(%%)", time, self.cycleDuration, (time / self.cycleDuration) * 100);
     
     // Interpolate each object around circle.
     for (int i = 0; i < _animatingItems.count; i++) {
@@ -397,6 +397,11 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
     c /= a;
     d /= a;
     
+    // If d is very small make earlier return with 0 as result.
+    if (fabs(d) < FLT_EPSILON) {
+        return 0;
+    }
+    
     CGFloat bb = b * b;
     CGFloat bbb = bb * b;
     
@@ -406,30 +411,37 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
     
     CGFloat resultingValue = 0.0f;
     
-    NSLog(@"A: %g. B: %g. C: %g. D: %g. Q: %.10f. R: %.10f. S: %.10f",
-          a,
-          b,
-          c,
-          d,
-          q,
-          r,
-          s);
-    
     if (s < 0) {
-        NSLog(@"Got 1 real root.");
+        // 1 real root, 2 non-real.
+        // Grab real root and return it.
         if (q == 0) {
             CGFloat underRootExpression = d - bbb / 27;
-            resultingValue = (-pow(underRootExpression < 0 ? -underRootExpression : underRootExpression, 1.0 / 3) - b / 3) * underRootExpression / fabs(underRootExpression);
-        } else if (q > 0){
+            
+            if (underRootExpression == 0) {
+                resultingValue = -b / 3;
+            } else {
+                resultingValue = (-pow(underRootExpression < 0 ? -underRootExpression : underRootExpression, 1.0 / 3) * underRootExpression / fabs(underRootExpression) - b / 3);
+            }
+        } else if (q > 0) {
             CGFloat angle = 1.0 / 3 * acosh(fabs(r) / sqrt(q * q * q));
-            resultingValue = -2 * r / fabs(r) * sqrt(q) * cosh(angle) - b / 3;
+            
+            if (r == 0) {
+                resultingValue = -b / 3;
+            } else {
+                resultingValue = -2 * r / fabs(r) * sqrt(q) * cosh(angle) - b / 3;
+            }
         } else {
             // q < 0
             CGFloat angle = 1.0 / 3 * asinh(fabs(r) / sqrt(fabs(q * q * q)));
-            resultingValue = -2 * r / fabs(r) * sqrt(-q) * sinh(angle) - b / 3;
+            
+            if (r == 0) {
+                resultingValue = -b / 3;
+            } else {
+                resultingValue = -2 * r / fabs(r) * sqrt(-q) * sinh(angle) - b / 3;
+            }
         }
     } else if (s > 0) {
-        NSLog(@"3 real unique roots.");
+        // We've got 3 roots each is unique.
         CGFloat angle = 1.0 / 3 * acos(r / sqrt(q * q * q));
         resultingValue = -2 * sqrt(q) * cos(angle) - b / 3;
         
@@ -441,18 +453,40 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
             resultingValue = -2 * sqrt(q) * cos(angle - (2.0 * M_PI) / 3) - b / 3;
         }
     } else {
+        // We've got 3 roots, 2 of them are equal.
         // s = 0
-        NSLog(@"3 real roots, 2 equal");
-        resultingValue = -2 * pow(r, 1.0 / 3) - b / 3;
-        
-        if (resultingValue < 0 || resultingValue > 1) {
-            resultingValue = pow(r, 1.0 / 3) - b / 3;
+        if (r == 0) {
+            resultingValue = -b / 3;
+        } else {
+            resultingValue = (-2 * pow(r < 0 ? -r : r, 1.0 / 3)) * r / fabs(r) - b / 3;
+            
+            if (resultingValue < 0 || resultingValue > 1) {
+                resultingValue = pow(r < 0 ? -r : r, 1.0 / 3) * r / fabs(r) - b / 3;
+            }
         }
     }
+
+    if (isnan(resultingValue)) {
+        NSLog(@"[YRActivityIndicator]: Couldn't correctly solve cubic equation. Contact developer, or open an issue on: https://github.com/solomidSF/YRActivityIndicator/issues. Please also provide given values: T: %.24f A: %24f. B: %24f. C: %24f. D: %24f. Q: %.24f. R: %.24f. S: %.24f. Current time: %.24f. Durartion: %.24f. Max items: %d. Max speed: %.24f. 1Bezier: %@. 2Bezier: %@.",
+              resultingValue,
+              a,
+              b,
+              c,
+              d,
+              q,
+              r,
+              s,
+              _currentCycleTime,
+              self.cycleDuration,
+              self.maxItems,
+              self.maxSpeed,
+              NSStringFromCGPoint(self.firstBezierControlPoint),
+              NSStringFromCGPoint(self.secondBezierControlPoint));
+    }
     
-    NSLog(@"Resulting value: %.10f", resultingValue);
-    
-    return resultingValue;
+    // Clamp value to our interval [0..1].
+    return MIN(MAX(resultingValue, 0),
+               1);
 }
 
 @end

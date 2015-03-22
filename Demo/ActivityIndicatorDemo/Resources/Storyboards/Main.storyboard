@@ -15,45 +15,18 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1016"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVz-Bi-o5s" customClass="YRActivityIndicator">
-                                <rect key="frame" x="110" y="33" width="100" height="100"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVz-Bi-o5s" customClass="YRActivityIndicator">
+                                <rect key="frame" x="110" y="71" width="100" height="179"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlb-tm-OMt">
-                                <rect key="frame" x="59" y="166" width="61" height="30"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aFJ-57-X5j"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-YA-Llh">
-                                <rect key="frame" x="131" y="166" width="59" height="30"/>
-                                <state key="normal" title="Stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KHu-o1-xQc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ib3-yW-N32">
-                                <rect key="frame" x="198" y="166" width="63" height="30"/>
-                                <state key="normal" title="Overlay">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="overlayClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2sF-Ea-XMU"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fO-3m-ri7">
-                                <rect key="frame" x="0.0" y="273" width="320" height="527"/>
+                                <rect key="frame" x="0.0" y="365" width="320" height="669"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwU-uy-bOu">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwU-uy-bOu" userLabel="View - [Container View]">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max items: [Value]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWu-1j-JtY">
                                                 <rect key="frame" x="138" y="51" width="135" height="21"/>
@@ -63,6 +36,7 @@
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" maximumValue="36" translatesAutoresizingMaskIntoConstraints="NO" id="qvb-XW-Qpz">
                                                 <rect key="frame" x="16" y="47" width="94" height="29"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="maxItemsValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="keA-Pt-phv"/>
                                                 </connections>
@@ -105,42 +79,49 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="16" translatesAutoresizingMaskIntoConstraints="NO" id="zEb-Db-clW">
                                                 <rect key="frame" x="14" y="84" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="cycleDurationSliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="gcY-rH-Z86"/>
                                                 </connections>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="jNJ-rq-EPK">
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="jNJ-rq-EPK">
                                                 <rect key="frame" x="14" y="122" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="radiusSliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="x0n-K1-SR9"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.6000000000000001" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="vXW-qJ-bfC">
                                                 <rect key="frame" x="14" y="160" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="maxSpeedSliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="4a3-Df-aHK"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="5" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="WOs-HW-qSu">
                                                 <rect key="frame" x="14" y="198" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="minItemSizeSliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="8f5-6M-6eE"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="5" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="LQ7-de-TbY">
                                                 <rect key="frame" x="14" y="236" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="maxItemSizeSliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="1YU-2h-3lw"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.89000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="V1R-No-bal">
                                                 <rect key="frame" x="14" y="274" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="firstBezierXPointValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="vTW-db-hkT"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="n0h-yh-5wg">
                                                 <rect key="frame" x="14" y="312" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="firstBezierYPointValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="E9q-0N-6uB"/>
                                                 </connections>
@@ -169,14 +150,28 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="21r-iH-VtV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red: [Value]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="U0V-om-IMx">
+                                                <rect key="frame" x="148" y="437" width="156" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Green: [Value]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="J7l-0B-um5">
+                                                <rect key="frame" x="148" y="474" width="156" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.12" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="21r-iH-VtV">
                                                 <rect key="frame" x="14" y="350" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="secondBezierXPointValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="FPx-kT-aYv"/>
                                                 </connections>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0r4-2I-FsX">
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0r4-2I-FsX">
                                                 <rect key="frame" x="14" y="388" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="secondBezierYPointValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Mrp-iD-0d0"/>
                                                 </connections>
@@ -187,48 +182,203 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bmX-yW-gPg">
+                                                <rect key="frame" x="14" y="433" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="redValueSliderChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="O2R-Tj-jCt"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZVV-4w-gDV">
+                                                <rect key="frame" x="14" y="470" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="greenValueSliderChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="d9C-7b-0UO"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="biM-A3-QR4">
+                                                <rect key="frame" x="14" y="508" width="118" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="blueValueSliderChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="f1Q-uG-AHB"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blue: [Value]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="n0s-j3-Gjr">
+                                                <rect key="frame" x="148" y="512" width="156" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtJ-fH-3A4">
+                                                <rect key="frame" x="128" y="555" width="64" height="64"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="Gub-oC-wZx"/>
+                                                    <constraint firstAttribute="width" constant="64" id="Wwv-q3-7yt"/>
+                                                </constraints>
+                                                <state key="normal" image="heart.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="heartClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="puR-Cm-rYs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsP-nk-7go">
+                                                <rect key="frame" x="240" y="555" width="64" height="64"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="64" id="Akf-BW-Teq"/>
+                                                    <constraint firstAttribute="width" constant="64" id="CRQ-Gi-8Y4"/>
+                                                </constraints>
+                                                <state key="normal" image="weather.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="weatherClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="It8-SR-wNG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6G-E3-j8z">
+                                                <rect key="frame" x="16" y="555" width="64" height="64"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="64" id="02W-rb-QWM"/>
+                                                    <constraint firstAttribute="height" constant="64" id="A7H-Lj-IXf"/>
+                                                </constraints>
+                                                <state key="normal" image="cat.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="catClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LQd-3A-0gg"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="568" id="GTC-AQ-Nba"/>
-                                            <constraint firstAttribute="width" constant="320" id="uCu-48-iL6"/>
+                                            <constraint firstItem="f6G-E3-j8z" firstAttribute="centerX" secondItem="cwU-uy-bOu" secondAttribute="centerX" multiplier="48:160" id="brL-Zf-bkb"/>
+                                            <constraint firstAttribute="centerY" secondItem="LtJ-fH-3A4" secondAttribute="centerY" constant="-252.5" id="hey-in-dqN"/>
+                                            <constraint firstAttribute="height" constant="669" id="jJH-ha-S8L"/>
+                                            <constraint firstAttribute="centerY" secondItem="f6G-E3-j8z" secondAttribute="centerY" constant="-252.5" id="jsx-jN-t6b"/>
+                                            <constraint firstAttribute="centerX" secondItem="LtJ-fH-3A4" secondAttribute="centerX" id="zec-LB-Euw"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="cwU-uy-bOu" secondAttribute="bottom" constant="-41" id="54O-2O-hax"/>
-                                    <constraint firstItem="cwU-uy-bOu" firstAttribute="leading" secondItem="9fO-3m-ri7" secondAttribute="leading" id="Q2o-7l-iOz"/>
-                                    <constraint firstAttribute="trailing" secondItem="cwU-uy-bOu" secondAttribute="trailing" id="cy7-FH-HUx"/>
-                                    <constraint firstItem="cwU-uy-bOu" firstAttribute="top" secondItem="9fO-3m-ri7" secondAttribute="top" id="oVQ-AG-EjF"/>
+                                    <constraint firstAttribute="trailing" secondItem="cwU-uy-bOu" secondAttribute="trailing" id="08U-1M-fQx"/>
+                                    <constraint firstAttribute="bottom" secondItem="cwU-uy-bOu" secondAttribute="bottom" id="Lhz-5B-lVO"/>
+                                    <constraint firstAttribute="width" secondItem="cwU-uy-bOu" secondAttribute="width" id="mY9-He-Rm9"/>
+                                    <constraint firstItem="cwU-uy-bOu" firstAttribute="leading" secondItem="9fO-3m-ri7" secondAttribute="leading" id="sE9-ZH-Id1"/>
+                                    <constraint firstItem="cwU-uy-bOu" firstAttribute="top" secondItem="9fO-3m-ri7" secondAttribute="top" id="xRd-1v-kV3"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBb-AH-T3y" userLabel="View - [Control Flow View]">
+                                <rect key="frame" x="0.0" y="309" width="320" height="53.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlb-tm-OMt">
+                                        <rect key="frame" x="26" y="0.0" width="61" height="53.5"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="aFJ-57-X5j"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXe-YA-Llh">
+                                        <rect key="frame" x="91" y="0.0" width="61" height="53.5"/>
+                                        <state key="normal" title="Stop">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KHu-o1-xQc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ib3-yW-N32">
+                                        <rect key="frame" x="165" y="0.0" width="61" height="53.5"/>
+                                        <state key="normal" title="Overlay">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="overlayClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2sF-Ea-XMU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itC-h9-OZC">
+                                        <rect key="frame" x="235" y="0.0" width="61" height="53.5"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GGD-9k-iLC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="oXe-YA-Llh" secondAttribute="centerY" id="A7O-He-UfH"/>
+                                    <constraint firstItem="oXe-YA-Llh" firstAttribute="centerX" secondItem="QBb-AH-T3y" secondAttribute="centerX" multiplier="122:160" id="AUz-5A-kzy"/>
+                                    <constraint firstItem="Qlb-tm-OMt" firstAttribute="width" secondItem="oXe-YA-Llh" secondAttribute="width" id="LNV-at-0cb"/>
+                                    <constraint firstItem="ib3-yW-N32" firstAttribute="height" secondItem="itC-h9-OZC" secondAttribute="height" id="MHw-1A-5sc"/>
+                                    <constraint firstItem="ib3-yW-N32" firstAttribute="centerX" secondItem="QBb-AH-T3y" secondAttribute="centerX" multiplier="196:160" id="QD0-wG-rvB"/>
+                                    <constraint firstAttribute="centerY" secondItem="Qlb-tm-OMt" secondAttribute="centerY" id="Uuq-LQ-7R3"/>
+                                    <constraint firstAttribute="height" secondItem="Qlb-tm-OMt" secondAttribute="height" id="Zgw-C6-gkw"/>
+                                    <constraint firstAttribute="centerY" secondItem="itC-h9-OZC" secondAttribute="centerY" id="bbD-SV-JIp"/>
+                                    <constraint firstItem="ib3-yW-N32" firstAttribute="height" secondItem="oXe-YA-Llh" secondAttribute="height" id="c0L-sa-7Sf"/>
+                                    <constraint firstItem="Qlb-tm-OMt" firstAttribute="centerX" secondItem="QBb-AH-T3y" secondAttribute="centerX" multiplier="56:160" id="fkg-Yk-tOG"/>
+                                    <constraint firstItem="ib3-yW-N32" firstAttribute="width" secondItem="itC-h9-OZC" secondAttribute="width" id="j6h-fT-5xn"/>
+                                    <constraint firstItem="ib3-yW-N32" firstAttribute="width" secondItem="oXe-YA-Llh" secondAttribute="width" id="m5M-QR-6C5"/>
+                                    <constraint firstAttribute="centerY" secondItem="ib3-yW-N32" secondAttribute="centerY" id="mXO-EV-Z6I"/>
+                                    <constraint firstItem="Qlb-tm-OMt" firstAttribute="height" secondItem="oXe-YA-Llh" secondAttribute="height" id="qrp-df-kCy"/>
+                                    <constraint firstItem="itC-h9-OZC" firstAttribute="centerX" secondItem="QBb-AH-T3y" secondAttribute="centerX" multiplier="266:160" id="szS-dk-dwb"/>
+                                    <constraint firstItem="Qlb-tm-OMt" firstAttribute="width" secondItem="QBb-AH-T3y" secondAttribute="width" multiplier="61:320" id="yj2-Mn-QE8"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.41176470590000003" green="0.68627450980000004" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="IVz-Bi-o5s" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="100:568" id="6Hb-Nh-SZr"/>
                             <constraint firstItem="9fO-3m-ri7" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="374:568" id="DcQ-3L-C8H"/>
+                            <constraint firstItem="QBb-AH-T3y" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="30:568" id="H0N-uH-cR2"/>
                             <constraint firstAttribute="centerX" secondItem="9fO-3m-ri7" secondAttribute="centerX" id="M20-8A-2AU"/>
+                            <constraint firstItem="IVz-Bi-o5s" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="90:284" id="O3B-WZ-Png"/>
+                            <constraint firstItem="QBb-AH-T3y" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="188:284" id="bOF-rP-2XW"/>
                             <constraint firstAttribute="width" secondItem="9fO-3m-ri7" secondAttribute="width" id="c8A-mX-Fcs"/>
-                            <constraint firstItem="9fO-3m-ri7" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="381:284" id="e0f-DX-DsY"/>
+                            <constraint firstItem="9fO-3m-ri7" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="391:284" id="e0f-DX-DsY"/>
+                            <constraint firstAttribute="centerX" secondItem="IVz-Bi-o5s" secondAttribute="centerX" id="frr-zI-KdF"/>
+                            <constraint firstItem="IVz-Bi-o5s" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" multiplier="100:320" id="oTg-D4-zZQ"/>
+                            <constraint firstAttribute="centerX" secondItem="QBb-AH-T3y" secondAttribute="centerX" id="oco-2r-FhI"/>
+                            <constraint firstItem="QBb-AH-T3y" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="yz7-I5-ouD"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="800"/>
+                    <size key="freeformSize" width="320" height="1016"/>
                     <connections>
                         <outlet property="_activityIndicator" destination="IVz-Bi-o5s" id="eoj-nf-80Z"/>
+                        <outlet property="_blueValueLabel" destination="n0s-j3-Gjr" id="Bg8-GS-eZa"/>
                         <outlet property="_cycleDurationLabel" destination="6qF-HU-b1e" id="ses-hc-ICv"/>
                         <outlet property="_firstBezierXPointValueLabel" destination="dQN-Mc-X6N" id="YQC-Fn-O2r"/>
                         <outlet property="_firstBezierYPointValueLabel" destination="EQi-Bz-1t3" id="ieQ-wC-tna"/>
+                        <outlet property="_greenValueLabel" destination="J7l-0B-um5" id="nXu-oP-j9W"/>
                         <outlet property="_maxItemSizeValueLabel" destination="LTI-BY-o5u" id="CAp-wp-FNJ"/>
                         <outlet property="_maxItemsLabel" destination="LWu-1j-JtY" id="87H-aA-1XR"/>
                         <outlet property="_maxSpeedValueLabel" destination="SkG-D6-qac" id="nXW-pi-vsI"/>
                         <outlet property="_minItemSizeValueLabel" destination="WsW-Ho-0zL" id="PRx-1O-WtC"/>
                         <outlet property="_radiusValueLabel" destination="AnM-fu-zPj" id="D8O-2z-26k"/>
+                        <outlet property="_redValueLabel" destination="U0V-om-IMx" id="zx1-Wr-jNq"/>
                         <outlet property="_secondBezierXPointValueLabel" destination="kfW-yD-weE" id="f7h-gf-P2C"/>
                         <outlet property="_secondBezierYPointValueLabel" destination="WxY-FI-LnU" id="fnY-7d-c3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="152"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cat.png" width="256" height="256"/>
+        <image name="heart.png" width="39" height="34"/>
+        <image name="weather.png" width="64" height="64"/>
+    </resources>
 </document>
