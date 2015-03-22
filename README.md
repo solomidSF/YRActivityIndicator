@@ -4,7 +4,7 @@
 
 ## Description
 
-`YRActivityIndicator` - component for showing loading activity in your application. Animation consist of items that rotate around imaginary circle in fixed time interval. Items size are interpolated linearly between `maxItemSize` and `minItemSize`. Each item has it’s own rotation speed value, that tells how fast it will make full rotation cycle from 0..2PI. This value is specified by setting `maxSpeed` property and it’s interpolated linearly between items. First item get’s max speed, last item gets regular speed (1.0). Rotation angle is interpolated by using cubic Bezier curve.
+`YRActivityIndicator` - component for showing loading activity in your application. Animation consist of items that rotate around imaginary circle in fixed time interval. Items size are interpolated linearly between `maxItemSize` and `minItemSize`. Each item has it’s own rotation speed value, that tells how fast it will make full rotation cycle from 0..2PI. This value is specified by setting `maxSpeed` property and it’s interpolated linearly between items. First item get’s max speed, last item gets regular speed (1.0). Rotation angle is interpolated by using cubic Bezier curve. 
 
 ## Demo
 
@@ -31,6 +31,10 @@ Simply drag&drop source into your project.
 5. When you need to stop animating call `-(void)stopAnimating`.
 
 ## Customization 
+
+You can customize these properties at any time, even while animating.
+Also you can customize `YRActivityIndicator` directly in xib/storyboard by using User Defined Runtime Attributes:
+![RuntimeAttributes](/RuntimeAttributes.png)
 
 Total count of items that will turn around imaginary circle.
 
