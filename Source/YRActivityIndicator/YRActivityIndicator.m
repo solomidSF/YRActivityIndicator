@@ -84,7 +84,7 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     // When we move to another superview -> invalidate current activity.
     // Normally its called two times:
-    // 1. When instantiating a view from code/xib/storyboard or creating from code.
+    // 1. When instantiating a view from code/xib/storyboard.
     // 2. When superview deallocates - we get notified about that via this call with nil param.
     [self invalidate];
 }

@@ -27,8 +27,12 @@
 
 /**
  *  Customizable activity indicator.
- *  Activity animation is using cubic bezier interpolation.
- *
+ *  Animation consist of items that rotate around imaginary circle in fixed time interval.
+ *  Items size are interpolated linearly between maxItemSize and minItemSize.
+ *  Each item has it’s own rotation speed value, that tells how fast it will make full rotation cycle from 0..2PI.
+ *  This value is specified by setting maxSpeed property and it’s interpolated linearly between items.
+ *  First item get’s max speed, last item gets regular speed (1.0).
+ *  Rotation angle is interpolated by using cubic Bezier curve.
  */
 @interface YRActivityIndicator : UIView
 

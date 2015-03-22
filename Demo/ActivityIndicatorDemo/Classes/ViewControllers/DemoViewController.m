@@ -31,22 +31,15 @@
     
     // UI
     __weak IBOutlet UILabel *_maxItemsLabel;
-    
     __weak IBOutlet UILabel *_cycleDurationLabel;
-    
     __weak IBOutlet UILabel *_radiusValueLabel;
-
     __weak IBOutlet UILabel *_maxSpeedValueLabel;
-    
     __weak IBOutlet UILabel *_minItemSizeValueLabel;
     __weak IBOutlet UILabel *_maxItemSizeValueLabel;
-
     __weak IBOutlet UILabel *_firstBezierXPointValueLabel;
     __weak IBOutlet UILabel *_firstBezierYPointValueLabel;
-    
     __weak IBOutlet UILabel *_secondBezierXPointValueLabel;
     __weak IBOutlet UILabel *_secondBezierYPointValueLabel;
-    
     __weak IBOutlet UILabel *_redValueLabel;
     __weak IBOutlet UILabel *_greenValueLabel;
     __weak IBOutlet UILabel *_blueValueLabel;
