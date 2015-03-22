@@ -6,7 +6,7 @@
 
 `YRActivityIndicator` with default settings:
 
-![Demo](/Demo.gif)
+![Demo](/demo.gif)
 
 Customization demo:
 
