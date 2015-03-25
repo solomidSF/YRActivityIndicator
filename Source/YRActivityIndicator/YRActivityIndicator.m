@@ -34,6 +34,25 @@ static CGFloat const kDefaultRadius = 30;
 static CGPoint const kDefaultFirstBezierControlPoint = (CGPoint){0.89, 0};
 static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
 
+#if TARGET_INTERFACE_BUILDER
+
+IB_DESIGNABLE
+@interface YRActivityIndicator (IBDesign)
+@property (nonatomic) IBInspectable int32_t maxItems;
+@property (nonatomic) IBInspectable int32_t radius;
+@property (nonatomic) IBInspectable CGFloat cycleDuration;
+@property (nonatomic) IBInspectable CGSize minItemSize;
+@property (nonatomic) IBInspectable CGSize maxItemSize;
+@property (nonatomic) IBInspectable CGFloat maxSpeed;
+@property (nonatomic) IBInspectable CGPoint firstBezierControlPoint;
+@property (nonatomic) IBInspectable CGPoint secondBezierControlPoint;
+@property (nonatomic) IBInspectable BOOL hidesWhenStopped;
+@property (nonatomic) IBInspectable UIImage *itemImage;
+@property (nonatomic) IBInspectable UIColor *itemColor;
+@end
+
+#endif
+
 @implementation YRActivityIndicator {
     NSArray *_animatingItems;
     
@@ -78,6 +97,78 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
     _firstBezierControlPoint = kDefaultFirstBezierControlPoint;
     _secondBezierControlPoint = kDefaultSecondBezierControlPoint;
 }
+
+#if TARGET_INTERFACE_BUILDER
+
+#pragma mark - InterfaceBuilder
+
+- (void)drawRect:(CGRect)rect {
+    // Draw for IB.
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    // Transite to another coordinate system.
+    CGContextTranslateCTM(ctx, 0, CGRectGetHeight(rect));
+    CGContextScaleCTM(ctx, 1, -1);
+
+    // Draw each item.
+    for (int i = 0; i < self.maxItems; i++) {
+        // Interpolate speed to solve cubic Bezier.
+        CGFloat minSpeed = 1.0;
+        
+        CGFloat interpolatedSpeed = minSpeed;
+        
+        // If we have more than one item -> interpolate between 1..self.maxSpeed
+        if (self.maxItems > 1) {
+            // First item gets max speed and then this speed decreases to 1 for last item.
+            interpolatedSpeed = (self.maxSpeed - (self.maxSpeed - minSpeed) * i / (self.maxItems - 1));
+        }
+        
+        CGFloat cycleDurationForItem = self.cycleDuration / interpolatedSpeed;
+        
+        // We shouldn't exceed normalized value.
+        CGFloat currentTime = MIN((self.cycleDuration / 2) / cycleDurationForItem,
+                                  1);
+        
+        // Solve cubic Bezier to get angle value.
+        CGFloat currentAngle = [self solveCubicBezierForAngleWithTime:currentTime
+                                                    firstControlPoint:self.firstBezierControlPoint
+                                                   secondControlPoint:self.secondBezierControlPoint];
+        
+        CGSize itemSize = self.maxItemSize;
+        
+        // Get size for current item.
+        if (self.maxItems > 1) {
+            itemSize = (CGSize){
+                self.maxItemSize.width - (self.maxItemSize.width - self.minItemSize.width) * i / (self.maxItems - 1),
+                self.maxItemSize.height - (self.maxItemSize.height - self.minItemSize.height) * i / (self.maxItems - 1)
+            };
+        }
+
+        CGPoint center = (CGPoint){
+            (CGRectGetWidth(rect) / 2) + self.radius * sin(currentAngle),
+            (CGRectGetHeight(rect) / 2) + self.radius * cos(currentAngle)
+        };
+        
+        // Calculate final rect for item.
+        CGRect itemRect = (CGRect){
+            center.x - itemSize.width / 2,
+            center.y - itemSize.height / 2,
+            itemSize
+        };
+        
+        // Grab image to draw.
+        UIImage *imageToDraw = self.itemImage;
+        if (!imageToDraw) {
+            imageToDraw = [self itemImageWithColor:self.itemColor
+                                          itemSize:itemSize];
+        }
+
+        // Draw final image and start from beggining.
+        CGContextDrawImage(ctx, itemRect, imageToDraw.CGImage);
+    }
+}
+
+#endif
 
 #pragma mark - Overridden
 
@@ -342,7 +433,7 @@ static CGPoint const kDefaultSecondBezierControlPoint = (CGPoint){0.12, 1};
     _displayLink = [CADisplayLink displayLinkWithTarget:self
                                                selector:@selector(handleTick:)];
     [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
-                       forMode:NSRunLoopCommonModes];
+                       forMode:NSDefaultRunLoopMode];
     
     _isAnimating = YES;
 }
