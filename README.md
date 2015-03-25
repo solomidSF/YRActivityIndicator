@@ -90,4 +90,4 @@ If you have any suggestions feel free to [contact](mailto:solomidSF@bk.ru) me.
 
 ## Version
 
-v1.0
+v1.1
