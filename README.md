@@ -10,11 +10,11 @@
 
 `YRActivityIndicator` with default settings:
 
-![Demo](/demo.gif)
+![Demo](/DemoImages/demo.gif)
 
 Customization demo:
 
-[![FullDemo](/youtube.png)](https://www.youtube.com/watch?v=HCTKk94Uk7U&feature=youtu.be)
+[![FullDemo](/DemoImages/youtube.png)](https://www.youtube.com/watch?v=HCTKk94Uk7U&feature=youtu.be)
 
 [See full video on YouTube](https://www.youtube.com/watch?v=HCTKk94Uk7U&feature=youtu.be)
 
@@ -34,7 +34,10 @@ Simply drag&drop source into your project.
 
 You can customize these properties at any time, even while animating.
 Also you can customize `YRActivityIndicator` directly in xib/storyboard by using User Defined Runtime Attributes:
-![RuntimeAttributes](/RuntimeAttributes.png)
+![RuntimeAttributes](/DemoImages/RuntimeAttributes.png)
+
+In addition, YRActivityIndicator supports live rendering in Interface Builder:
+![LiveRendering](/DemoImages/LiveRendering.png)
 
 Total count of items that will turn around imaginary circle.
 
