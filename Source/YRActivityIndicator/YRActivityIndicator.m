@@ -454,6 +454,8 @@ IB_DESIGNABLE
     _animatingItems = nil;
     
     [self invalidateDisplayLink];
+    
+    self.hidden = self.hidesWhenStopped;
 }
 
 #pragma mark - Bezier
