@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D58BA551AC96CA900F2B230 /* YRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58BA541AC96CA900F2B230 /* YRActivityIndicator.m */; };
+		7D58BA591AC96D9A00F2B230 /* YRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58BA581AC96D9A00F2B230 /* YRActivityIndicator.m */; };
 		7D82E9211ABA3046006A6849 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82E9141ABA3046006A6849 /* AppDelegate.m */; };
 		7D82E9221ABA3046006A6849 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82E9171ABA3046006A6849 /* DemoViewController.m */; };
 		7D82E9231ABA3046006A6849 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D82E9191ABA3046006A6849 /* Images.xcassets */; };
@@ -20,8 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7D58BA531AC96CA900F2B230 /* YRActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRActivityIndicator.h; sourceTree = "<group>"; };
-		7D58BA541AC96CA900F2B230 /* YRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRActivityIndicator.m; sourceTree = "<group>"; };
+		7D58BA571AC96D9A00F2B230 /* YRActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRActivityIndicator.h; sourceTree = "<group>"; };
+		7D58BA581AC96D9A00F2B230 /* YRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRActivityIndicator.m; sourceTree = "<group>"; };
 		7D82E8E81AB99638006A6849 /* ActivityIndicatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityIndicatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D82E9131ABA3046006A6849 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D82E9141ABA3046006A6849 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,14 +48,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D58BA521AC96CA900F2B230 /* YRActivityIndicator */ = {
+		7D58BA561AC96D9A00F2B230 /* YRActivityIndicator */ = {
 			isa = PBXGroup;
 			children = (
-				7D58BA531AC96CA900F2B230 /* YRActivityIndicator.h */,
-				7D58BA541AC96CA900F2B230 /* YRActivityIndicator.m */,
+				7D58BA571AC96D9A00F2B230 /* YRActivityIndicator.h */,
+				7D58BA581AC96D9A00F2B230 /* YRActivityIndicator.m */,
 			);
-			name = YRActivityIndicator;
-			path = ../../../../Source/YRActivityIndicator;
+			path = YRActivityIndicator;
 			sourceTree = "<group>";
 		};
 		7D82E8DF1AB99638006A6849 = {
@@ -143,7 +142,7 @@
 		7D82E9281ABA3084006A6849 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7D58BA521AC96CA900F2B230 /* YRActivityIndicator */,
+				7D58BA561AC96D9A00F2B230 /* YRActivityIndicator */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -232,7 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D82E9221ABA3046006A6849 /* DemoViewController.m in Sources */,
-				7D58BA551AC96CA900F2B230 /* YRActivityIndicator.m in Sources */,
+				7D58BA591AC96D9A00F2B230 /* YRActivityIndicator.m in Sources */,
 				7D82E9271ABA3046006A6849 /* main.m in Sources */,
 				7D82E9211ABA3046006A6849 /* AppDelegate.m in Sources */,
 			);
