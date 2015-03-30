@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D58BA551AC96CA900F2B230 /* YRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58BA541AC96CA900F2B230 /* YRActivityIndicator.m */; };
 		7D82E9211ABA3046006A6849 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82E9141ABA3046006A6849 /* AppDelegate.m */; };
 		7D82E9221ABA3046006A6849 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82E9171ABA3046006A6849 /* DemoViewController.m */; };
 		7D82E9231ABA3046006A6849 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D82E9191ABA3046006A6849 /* Images.xcassets */; };
 		7D82E9241ABA3046006A6849 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D82E91B1ABA3046006A6849 /* LaunchScreen.xib */; };
 		7D82E9251ABA3046006A6849 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D82E91D1ABA3046006A6849 /* Main.storyboard */; };
 		7D82E9271ABA3046006A6849 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82E9201ABA3046006A6849 /* main.m */; };
-		7D82E92C1ABA308F006A6849 /* YRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82E92B1ABA308F006A6849 /* YRActivityIndicator.m */; };
 		7DEF87A41ABDEAB0003A6262 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DEF87A11ABDEAB0003A6262 /* cat.png */; };
 		7DEF87A51ABDEAB0003A6262 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DEF87A21ABDEAB0003A6262 /* heart.png */; };
 		7DEF87A61ABDEAB0003A6262 /* weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DEF87A31ABDEAB0003A6262 /* weather.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D58BA531AC96CA900F2B230 /* YRActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRActivityIndicator.h; sourceTree = "<group>"; };
+		7D58BA541AC96CA900F2B230 /* YRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRActivityIndicator.m; sourceTree = "<group>"; };
 		7D82E8E81AB99638006A6849 /* ActivityIndicatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityIndicatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D82E9131ABA3046006A6849 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D82E9141ABA3046006A6849 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -30,8 +32,6 @@
 		7D82E91D1ABA3046006A6849 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7D82E91F1ABA3046006A6849 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D82E9201ABA3046006A6849 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7D82E92A1ABA308F006A6849 /* YRActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRActivityIndicator.h; sourceTree = "<group>"; };
-		7D82E92B1ABA308F006A6849 /* YRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRActivityIndicator.m; sourceTree = "<group>"; };
 		7DEF87A11ABDEAB0003A6262 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
 		7DEF87A21ABDEAB0003A6262 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		7DEF87A31ABDEAB0003A6262 /* weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather.png; sourceTree = "<group>"; };
@@ -48,6 +48,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D58BA521AC96CA900F2B230 /* YRActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				7D58BA531AC96CA900F2B230 /* YRActivityIndicator.h */,
+				7D58BA541AC96CA900F2B230 /* YRActivityIndicator.m */,
+			);
+			name = YRActivityIndicator;
+			path = ../../../../Source/YRActivityIndicator;
+			sourceTree = "<group>";
+		};
 		7D82E8DF1AB99638006A6849 = {
 			isa = PBXGroup;
 			children = (
@@ -133,19 +143,9 @@
 		7D82E9281ABA3084006A6849 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7D82E9291ABA308F006A6849 /* YRActivityIndicator */,
+				7D58BA521AC96CA900F2B230 /* YRActivityIndicator */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		7D82E9291ABA308F006A6849 /* YRActivityIndicator */ = {
-			isa = PBXGroup;
-			children = (
-				7D82E92A1ABA308F006A6849 /* YRActivityIndicator.h */,
-				7D82E92B1ABA308F006A6849 /* YRActivityIndicator.m */,
-			);
-			name = YRActivityIndicator;
-			path = ../../../../Source/YRActivityIndicator;
 			sourceTree = "<group>";
 		};
 		7DEF87A01ABDEAB0003A6262 /* Images */ = {
@@ -232,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D82E9221ABA3046006A6849 /* DemoViewController.m in Sources */,
-				7D82E92C1ABA308F006A6849 /* YRActivityIndicator.m in Sources */,
+				7D58BA551AC96CA900F2B230 /* YRActivityIndicator.m in Sources */,
 				7D82E9271ABA3046006A6849 /* main.m in Sources */,
 				7D82E9211ABA3046006A6849 /* AppDelegate.m in Sources */,
 			);

@@ -25,7 +25,7 @@ Simply drag&drop source into your project.
 ## Usage
 
 1. Create regular view and set it’s class to `YRActivityIndicator`.
-2. Connect it to your class when you plan to present it.
+2. Create outlet connection for it in your class which should present loading activity.
 3. Customize any properties you want before presenting.
 4. Call `-(void)startAnimating` on `YRActivityIndicator` object.
 5. When you need to stop animating call `-(void)stopAnimating`.
@@ -36,7 +36,7 @@ You can customize these properties at any time, even while animating.
 Also you can customize `YRActivityIndicator` directly in xib/storyboard by using User Defined Runtime Attributes:
 ![RuntimeAttributes](/DemoImages/RuntimeAttributes.png)
 
-In addition, YRActivityIndicator supports live rendering in Interface Builder:
+In addition, `YRActivityIndicator` supports live rendering in Interface Builder:
 ![LiveRendering](/DemoImages/LiveRendering.png)
 
 Total count of items that will turn around imaginary circle.
@@ -80,7 +80,7 @@ Color of items that will be animated.
 
 	@property (nonatomic) UIColor *itemColor;	
 
-Simply tells is current activity indicator is animation or not.
+Simply tells is current activity indicator is animating or not.
 	
 	@property (nonatomic, readonly) BOOL isAnimating;
 
