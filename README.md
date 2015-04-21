@@ -14,7 +14,7 @@
 
 Customization demo:
 
-[![FullDemo](/DemoImages/youtube.png)](https://www.youtube.com/watch?v=HCTKk94Uk7U&feature=youtu.be)
+[![FullDemo](/DemoImages/youtube.png)](https://www.youtube.com/watch?v=YJ3_vZMaG8E&feature=youtu.be)
 
 [See full video on YouTube](https://www.youtube.com/watch?v=HCTKk94Uk7U&feature=youtu.be)
 
