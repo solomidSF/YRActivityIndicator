@@ -434,6 +434,8 @@ IB_DESIGNABLE
                                                selector:@selector(handleTick:)];
     [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
                        forMode:NSDefaultRunLoopMode];
+	[_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
+					   forMode:UITrackingRunLoopMode];
     
     _isAnimating = YES;
 }
