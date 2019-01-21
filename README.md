@@ -66,6 +66,7 @@ Describes how much time needed to rotate around circle.
 Minimum/Maximum item size. Generally, item sizes are linearly interpolated from first to last, so first item would have `maxItemSize` and last item would have `minItemSize`.
 
 `@property (nonatomic) CGSize minItemSize;`
+
 `@property (nonatomic) CGSize maxItemSize;`
 
 Tells how much faster items will make full rotation around a circle. This value is linearly interpolated between items. First item would get `maxSpeed`, last item would get `minSpeed`(`minSpeed` always equal to 1).
@@ -75,6 +76,7 @@ Tells how much faster items will make full rotation around a circle. This value 
 All items are rotated around imaginary circle, thus they depend on angle. Angle of rotation is interpolated by using cubic Bezier. Cubic Bezier has 4 control points to configure a curve (more information [here](http://en.wikipedia.org/wiki/B%C3%A9zier_curve#Cubic_B.C3.A9zier_curves)). 2 curves are preserved by component (initial, final) and they are equal to (0, 0) and (1, 1). Other two can be customized by you. You can use for example this [site](http://cubic-bezier.com/) to adjust your curve/grab control point and set them for activity indicator.
 
 `@property (nonatomic) CGPoint firstBezierControlPoint;`
+
 `@property (nonatomic) CGPoint secondBezierControlPoint;`
 
 When activity indicator isn’t animating it can automatically hide if this property set to `YES`.    
@@ -100,7 +102,7 @@ If you have any suggestions feel free to [contact](mailto:solomidSF@bk.ru) me.
 
 ## Version
 
-v1.2.0
+v1.3.0
 
 ## License
 

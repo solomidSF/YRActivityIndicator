@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YRActivityIndicator'
-  s.version          = '1.2.0'
+  s.version          = '1.3.0'
   s.summary          = 'Fancy, highly customizable activity indicator that is using cubic Bezier for animation.'
   s.description      = <<-DESC
 YRActivityIndicator - component for showing loading activity in your application.
