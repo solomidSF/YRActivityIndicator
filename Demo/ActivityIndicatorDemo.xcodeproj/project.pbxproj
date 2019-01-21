@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D58BA591AC96D9A00F2B230 /* YRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58BA581AC96D9A00F2B230 /* YRActivityIndicator.m */; };
 		7D82E9211ABA3046006A6849 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82E9141ABA3046006A6849 /* AppDelegate.m */; };
 		7D82E9221ABA3046006A6849 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82E9171ABA3046006A6849 /* DemoViewController.m */; };
 		7D82E9231ABA3046006A6849 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D82E9191ABA3046006A6849 /* Images.xcassets */; };
@@ -17,11 +16,10 @@
 		7DEF87A41ABDEAB0003A6262 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DEF87A11ABDEAB0003A6262 /* cat.png */; };
 		7DEF87A51ABDEAB0003A6262 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DEF87A21ABDEAB0003A6262 /* heart.png */; };
 		7DEF87A61ABDEAB0003A6262 /* weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DEF87A31ABDEAB0003A6262 /* weather.png */; };
+		7DFF2B2321F66163003213BC /* YRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF2B2221F66163003213BC /* YRActivityIndicator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7D58BA571AC96D9A00F2B230 /* YRActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRActivityIndicator.h; sourceTree = "<group>"; };
-		7D58BA581AC96D9A00F2B230 /* YRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRActivityIndicator.m; sourceTree = "<group>"; };
 		7D82E8E81AB99638006A6849 /* ActivityIndicatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityIndicatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D82E9131ABA3046006A6849 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D82E9141ABA3046006A6849 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,6 +33,8 @@
 		7DEF87A11ABDEAB0003A6262 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
 		7DEF87A21ABDEAB0003A6262 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		7DEF87A31ABDEAB0003A6262 /* weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather.png; sourceTree = "<group>"; };
+		7DFF2B2121F66163003213BC /* YRActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRActivityIndicator.h; sourceTree = "<group>"; };
+		7DFF2B2221F66163003213BC /* YRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRActivityIndicator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,15 +48,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D58BA561AC96D9A00F2B230 /* YRActivityIndicator */ = {
-			isa = PBXGroup;
-			children = (
-				7D58BA571AC96D9A00F2B230 /* YRActivityIndicator.h */,
-				7D58BA581AC96D9A00F2B230 /* YRActivityIndicator.m */,
-			);
-			path = YRActivityIndicator;
-			sourceTree = "<group>";
-		};
 		7D82E8DF1AB99638006A6849 = {
 			isa = PBXGroup;
 			children = (
@@ -88,7 +79,7 @@
 			children = (
 				7D82E9131ABA3046006A6849 /* AppDelegate.h */,
 				7D82E9141ABA3046006A6849 /* AppDelegate.m */,
-				7D82E9281ABA3084006A6849 /* Components */,
+				7DFF2B2021F66163003213BC /* YRActivityIndicator */,
 				7D82E9151ABA3046006A6849 /* ViewControllers */,
 			);
 			path = Classes;
@@ -139,14 +130,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7D82E9281ABA3084006A6849 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				7D58BA561AC96D9A00F2B230 /* YRActivityIndicator */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		7DEF87A01ABDEAB0003A6262 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +138,16 @@
 				7DEF87A31ABDEAB0003A6262 /* weather.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		7DFF2B2021F66163003213BC /* YRActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				7DFF2B2121F66163003213BC /* YRActivityIndicator.h */,
+				7DFF2B2221F66163003213BC /* YRActivityIndicator.m */,
+			);
+			name = YRActivityIndicator;
+			path = ../../../Source/YRActivityIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,7 +176,7 @@
 		7D82E8E01AB99638006A6849 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = solomidSF;
 				TargetAttributes = {
 					7D82E8E71AB99638006A6849 = {
@@ -231,7 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D82E9221ABA3046006A6849 /* DemoViewController.m in Sources */,
-				7D58BA591AC96D9A00F2B230 /* YRActivityIndicator.m in Sources */,
+				7DFF2B2321F66163003213BC /* YRActivityIndicator.m in Sources */,
 				7D82E9271ABA3046006A6849 /* main.m in Sources */,
 				7D82E9211ABA3046006A6849 /* AppDelegate.m in Sources */,
 			);
@@ -248,20 +241,32 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -289,13 +294,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -303,6 +318,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -320,9 +336,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/ActivityIndicatorDemo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solomidSF.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -331,9 +349,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/ActivityIndicatorDemo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.solomidSF.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
