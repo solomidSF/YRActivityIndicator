@@ -10,11 +10,11 @@
 
 `YRActivityIndicator` with default settings:
 
-![Demo](/DemoImages/demo.gif)
+![Demo](https://raw.githubusercontent.com/solomidSF/YRActivityIndicator/1.2.0/DemoImages/demo.gif)
 
 Customization demo:
 
-[![FullDemo](/DemoImages/youtube.png)](https://www.youtube.com/watch?v=YJ3_vZMaG8E&feature=youtu.be)
+[![FullDemo](https://raw.githubusercontent.com/solomidSF/YRActivityIndicator/1.2.0/DemoImages/youtube.png)](https://www.youtube.com/watch?v=YJ3_vZMaG8E&feature=youtu.be)
 
 [See full video on YouTube](https://www.youtube.com/watch?v=YJ3_vZMaG8E&feature=youtu.be)
 
@@ -44,55 +44,55 @@ pod 'YRActivityIndicator'
 
 You can customize these properties at any time, even while animating.
 Also you can customize `YRActivityIndicator` directly in xib/storyboard by using User Defined Runtime Attributes:
-![RuntimeAttributes](/DemoImages/RuntimeAttributes.png)
+![RuntimeAttributes](https://raw.githubusercontent.com/solomidSF/YRActivityIndicator/1.2.0/DemoImages/RuntimeAttributes.png)
 
 In addition, `YRActivityIndicator` supports live rendering in Interface Builder:
-![LiveRendering](/DemoImages/LiveRendering.png)
+![LiveRendering](https://raw.githubusercontent.com/solomidSF/YRActivityIndicator/1.2.0/DemoImages/LiveRendering.png)
 
 Total count of items that will turn around imaginary circle.
 
-@property (nonatomic) int32_t maxItems;
+`@property (nonatomic) int32_t maxItems;`
 
 Radius of imaginary circle around which items are rotating.
 
-@property (nonatomic) int32_t radius;
+`@property (nonatomic) int32_t radius;`
 
 
 Describes how much time needed to rotate around circle.
 
-@property (nonatomic) NSTimeInterval cycleDuration;
+`@property (nonatomic) NSTimeInterval cycleDuration;`
 
 
 Minimum/Maximum item size. Generally, item sizes are linearly interpolated from first to last, so first item would have `maxItemSize` and last item would have `minItemSize`.
 
-@property (nonatomic) CGSize minItemSize;
-@property (nonatomic) CGSize maxItemSize;
+`@property (nonatomic) CGSize minItemSize;`
+`@property (nonatomic) CGSize maxItemSize;`
 
 Tells how much faster items will make full rotation around a circle. This value is linearly interpolated between items. First item would get `maxSpeed`, last item would get `minSpeed`(`minSpeed` always equal to 1).
 
-@property (nonatomic) CGFloat maxSpeed;
+`@property (nonatomic) CGFloat maxSpeed;`
 
 All items are rotated around imaginary circle, thus they depend on angle. Angle of rotation is interpolated by using cubic Bezier. Cubic Bezier has 4 control points to configure a curve (more information [here](http://en.wikipedia.org/wiki/B%C3%A9zier_curve#Cubic_B.C3.A9zier_curves)). 2 curves are preserved by component (initial, final) and they are equal to (0, 0) and (1, 1). Other two can be customized by you. You can use for example this [site](http://cubic-bezier.com/) to adjust your curve/grab control point and set them for activity indicator.
 
-@property (nonatomic) CGPoint firstBezierControlPoint;
-@property (nonatomic) CGPoint secondBezierControlPoint;
+`@property (nonatomic) CGPoint firstBezierControlPoint;`
+`@property (nonatomic) CGPoint secondBezierControlPoint;`
 
-When activity indicator isn’t animating it can automatically hide if this property set to YES.    
+When activity indicator isn’t animating it can automatically hide if this property set to `YES`.    
 
-@property (nonatomic) BOOL hidesWhenStopped;
+`@property (nonatomic) BOOL hidesWhenStopped;`
 
 
 You can provide custom image for items that are rotating. `itemImage` has more priority than `itemColor`, so setting color when component has image won’t change anything.
 
-@property (nonatomic) UIImage *itemImage;
+`@property (nonatomic) UIImage *itemImage;`
 
 Color of items that will be animated.
 
-@property (nonatomic) UIColor *itemColor;    
+`@property (nonatomic) UIColor *itemColor;` 
 
 Simply tells is current activity indicator is animating or not.
 
-@property (nonatomic, readonly) BOOL isAnimating;
+`@property (nonatomic, readonly) BOOL isAnimating;`
 
 ## Notes
 
@@ -101,3 +101,7 @@ If you have any suggestions feel free to [contact](mailto:solomidSF@bk.ru) me.
 ## Version
 
 v1.2.0
+
+## License
+
+YRActivityIndicator is released under the MIT license. See [LICENSE](https://github.com/solomidSF/YRActivityIndicator/blob/master/LICENSE) for details.
